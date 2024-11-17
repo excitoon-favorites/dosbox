@@ -22,18 +22,18 @@
 //#include "render.h"
 #include "video.h"
 
-#define SCALER_MAX_MUL_WIDTH  3
-#define SCALER_MAX_MUL_HEIGHT 3
+#define SCALER_MAX_MUL_WIDTH  8
+#define SCALER_MAX_MUL_HEIGHT 8
 
 #if RENDER_USE_ADVANCED_SCALERS>0
 #define SCALER_MAXWIDTH 	1280 
 #define SCALER_MAXHEIGHT	1024
-#define SCALER_MAXX     	4096
+#define SCALER_MAXX     	8192
 #else
 // reduced to save some memory
 #define SCALER_MAXWIDTH 	800 
 #define SCALER_MAXHEIGHT	600
-#define SCALER_MAXX     	2048
+#define SCALER_MAXX     	4096
 #endif
 
 #if (SCALER_MAX_MUL_WIDTH * SCALER_MAXWIDTH) > SCALER_MAXX
@@ -126,6 +126,11 @@ extern ScalerSimpleBlock_t ScaleNormalDw;
 extern ScalerSimpleBlock_t ScaleNormalDh;
 extern ScalerSimpleBlock_t ScaleNormal2x;
 extern ScalerSimpleBlock_t ScaleNormal3x;
+extern ScalerSimpleBlock_t ScaleNormal4x;
+extern ScalerSimpleBlock_t ScaleNormal5x;
+extern ScalerSimpleBlock_t ScaleNormal6x;
+extern ScalerSimpleBlock_t ScaleNormal7x;
+extern ScalerSimpleBlock_t ScaleNormal8x;
 #if RENDER_USE_ADVANCED_SCALERS>0
 extern ScalerSimpleBlock_t ScaleTV2x;
 extern ScalerSimpleBlock_t ScaleTV3x;
