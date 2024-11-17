@@ -295,21 +295,43 @@ static void RENDER_Reset( void ) {
 
 	if ((dblh && dblw) || (render.scale.forced && !dblh && !dblw)) {
 		/* Initialize always working defaults */
-		if (render.scale.size == 2)
-			simpleBlock = &ScaleNormal2x;
-		else if (render.scale.size == 3)
-			simpleBlock = &ScaleNormal3x;
-		else if (render.scale.size == 4)
-			simpleBlock = &ScaleNormal4x;
-		else if (render.scale.size == 5)
-			simpleBlock = &ScaleNormal5x;
-		else if (render.scale.size == 6)
-			simpleBlock = &ScaleNormal6x;
-		else if (render.scale.size == 7)
-			simpleBlock = &ScaleNormal7x;
-		else if (render.scale.size == 8)
-			simpleBlock = &ScaleNormal8x;
-		else
+		if (render.scale.size == 2) {
+		    // !dblh && !dblw === text mode
+			if (!dblh && !dblw)
+				simpleBlock = &ScaleNormal1x;
+			else
+				simpleBlock = &ScaleNormal2x;
+		} else if (render.scale.size == 3) {
+			if (!dblh && !dblw)
+				simpleBlock = &ScaleNormal1x;
+			else
+				simpleBlock = &ScaleNormal3x;
+		} else if (render.scale.size == 4) {
+			if (!dblh && !dblw)
+				simpleBlock = &ScaleNormal2x;
+			else
+				simpleBlock = &ScaleNormal4x;
+		} else if (render.scale.size == 5) {
+			if (!dblh && !dblw)
+				simpleBlock = &ScaleNormal2x;
+			else
+				simpleBlock = &ScaleNormal5x;
+		} else if (render.scale.size == 6) {
+			if (!dblh && !dblw)
+				simpleBlock = &ScaleNormal3x;
+			else
+				simpleBlock = &ScaleNormal6x;
+		} else if (render.scale.size == 7) {
+			if (!dblh && !dblw)
+				simpleBlock = &ScaleNormal3x;
+			else
+				simpleBlock = &ScaleNormal7x;
+		} else if (render.scale.size == 8) {
+			if (!dblh && !dblw)
+				simpleBlock = &ScaleNormal4x;
+			else
+				simpleBlock = &ScaleNormal8x;
+		} else
 			simpleBlock = &ScaleNormal1x;
 		/* Maybe override them */
 #if RENDER_USE_ADVANCED_SCALERS>0
